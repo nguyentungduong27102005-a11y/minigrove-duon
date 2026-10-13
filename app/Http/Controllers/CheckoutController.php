@@ -1368,7 +1368,50 @@ try {
      */
     report($e);
 }
+/// THÔNG BÁO ĐƠN HÀNG MỚI CHO ADMIN QUA RESEND
+$adminEmail = config('mail.admin_order_email');
 
+if ($adminEmail) {
+    $orderId = $order->id;
+
+    dispatch(function () use ($adminEmail, $orderId) {
+        try {
+            $newOrder = Order::find($orderId);
+
+            if (!$newOrder) {
+                return;
+            }
+
+            $content =
+                "MiniGrove vừa có đơn hàng mới!\n\n"
+                . "Mã đơn hàng: {$newOrder->order_code}\n"
+                . "Khách hàng: {$newOrder->customer_name}\n"
+                . "Tổng tiền: "
+                . number_format((float) $newOrder->total_amount, 0, ',', '.')
+                . "đ\n"
+                . "Phương thức thanh toán: {$newOrder->payment_method}\n"
+                . "Trạng thái thanh toán: {$newOrder->payment_status}\n\n"
+                . "Xem đơn hàng: "
+                . route('admin.orders.show', ['order' => $newOrder->id]);
+
+            Mail::mailer('resend')->raw(
+                $content,
+                function ($message) use ($adminEmail, $newOrder) {
+                    $message
+                        ->from('onboarding@resend.dev', 'MiniGrove')
+                        ->to($adminEmail)
+                        ->subject(
+                            '[MiniGrove] Đơn hàng mới - '
+                            . $newOrder->order_code
+                        );
+                }
+            );
+
+        } catch (\Throwable $e) {
+            report($e);
+        }
+    })->afterResponse();
+}
     } catch (
         ValidationException $e
     ) {
