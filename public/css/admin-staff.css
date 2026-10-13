@@ -1,0 +1,603 @@
+.staff-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.staff-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.staff-header h1 {
+    margin: 0 0 6px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #24352b;
+}
+
+.staff-header p {
+    margin: 0;
+    color: #6d786f;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.staff-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.staff-stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e9e6;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(30, 50, 38, 0.05);
+}
+
+.staff-stat-title {
+    font-size: 14px;
+    color: #778077;
+    margin-bottom: 10px;
+}
+
+.staff-stat-number {
+    font-size: 30px;
+    font-weight: 700;
+    color: #28583a;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.staff-section {
+    background: #ffffff;
+    border: 1px solid #e5e9e6;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(30, 50, 38, 0.05);
+}
+
+.staff-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.staff-section-heading h2 {
+    margin: 0 0 5px;
+    font-size: 21px;
+    color: #24352b;
+}
+
+.staff-section-heading p {
+    margin: 0;
+    color: #7b847c;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.staff-filter {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 190px auto auto;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.staff-filter input,
+.staff-filter select {
+    height: 42px;
+    border: 1px solid #d8ded9;
+    border-radius: 9px;
+    padding: 0 12px;
+    background: #ffffff;
+    color: #26342b;
+    font-size: 14px;
+    outline: none;
+}
+
+.staff-filter input:focus,
+.staff-filter select:focus {
+    border-color: #5b8869;
+    box-shadow: 0 0 0 3px rgba(91, 136, 105, 0.12);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.staff-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px 15px;
+    border: 0;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.staff-btn:hover {
+    transform: translateY(-1px);
+}
+
+.staff-btn-primary {
+    background: #2f6c46;
+    color: #ffffff;
+}
+
+.staff-btn-primary:hover {
+    background: #285d3c;
+}
+
+.staff-btn-secondary {
+    background: #edf1ee;
+    color: #405046;
+}
+
+.staff-btn-secondary:hover {
+    background: #e0e7e2;
+}
+
+.staff-btn-active {
+    background: #e2f3e7;
+    color: #26703f;
+}
+
+.staff-btn-inactive {
+    background: #f8e6e6;
+    color: #a64242;
+}
+
+.staff-btn-small {
+    min-height: 34px;
+    padding: 6px 11px;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.staff-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 950px;
+}
+
+.staff-table th {
+    text-align: left;
+    background: #f6f8f6;
+    color: #566359;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 13px 12px;
+    border-bottom: 1px solid #e3e8e4;
+}
+
+.staff-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf0ed;
+    vertical-align: middle;
+    color: #39473e;
+    font-size: 14px;
+}
+
+.staff-table tbody tr:hover {
+    background: #fbfcfb;
+}
+
+
+/* =========================================================
+   STAFF PERSON
+========================================================= */
+
+.staff-person {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.staff-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #e5f0e8;
+    color: #2f6943;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.staff-person strong {
+    display: block;
+    color: #29372f;
+    margin-bottom: 3px;
+}
+
+.staff-person small {
+    display: block;
+    color: #8a938c;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.staff-contact strong {
+    display: block;
+    font-weight: 600;
+    color: #35443a;
+    margin-bottom: 4px;
+}
+
+.staff-contact small {
+    color: #8a938c;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.staff-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.staff-status-active {
+    background: #e2f3e7;
+    color: #287242;
+}
+
+.staff-status-inactive {
+    background: #f8e6e6;
+    color: #a64242;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.staff-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.staff-actions form {
+    margin: 0;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.staff-empty {
+    text-align: center;
+    padding: 30px !important;
+    color: #8b938d !important;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.staff-pagination {
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .staff-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .staff-filter {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .staff-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-filter {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-header {
+        align-items: stretch;
+    }
+
+    .staff-header .staff-btn {
+        width: 100%;
+    }
+}
+/* =========================================================
+   STAFF FORM
+========================================================= */
+
+.staff-form-card {
+    background: #ffffff;
+    border: 1px solid #e5e9e6;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 4px 14px rgba(30, 50, 38, 0.05);
+}
+
+.staff-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.staff-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.staff-form-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #35443a;
+}
+
+.staff-form-group input {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    border: 1px solid #d8ded9;
+    border-radius: 9px;
+    padding: 0 13px;
+    background: #ffffff;
+    color: #26342b;
+    font-size: 14px;
+    outline: none;
+}
+
+.staff-form-group input:focus {
+    border-color: #5b8869;
+    box-shadow: 0 0 0 3px rgba(91, 136, 105, 0.12);
+}
+
+.staff-required {
+    color: #b74747;
+}
+
+.staff-form-hint {
+    font-size: 12px;
+    color: #89928b;
+}
+
+.staff-error {
+    font-size: 13px;
+    color: #b64040;
+}
+
+.staff-form-note {
+    margin-top: 24px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #f4f7f5;
+    color: #657168;
+    font-size: 13px;
+}
+
+.staff-form-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE FORM
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .staff-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .staff-form-actions .staff-btn {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   STAFF TABLE ALIGNMENT
+========================================================= */
+
+
+/* Table layout */
+
+.staff-table {
+
+    width:100%;
+
+    table-layout: fixed;
+
+}
+
+
+
+/* ID */
+
+.staff-table th:nth-child(1),
+.staff-table td:nth-child(1){
+
+    width:7%;
+
+}
+
+
+
+/* Nhân viên */
+
+.staff-table th:nth-child(2),
+.staff-table td:nth-child(2){
+
+    width:18%;
+
+}
+
+
+
+/* Liên hệ */
+
+.staff-table th:nth-child(3),
+.staff-table td:nth-child(3){
+
+    width:18%;
+
+}
+
+
+
+/* Chức vụ */
+
+.staff-table th:nth-child(4),
+.staff-table td:nth-child(4){
+
+    width:22%;
+
+}
+
+
+
+/* Ngày tạo */
+
+.staff-table th:nth-child(5),
+.staff-table td:nth-child(5){
+
+    width:15%;
+
+}
+
+
+
+/* Trạng thái */
+
+.staff-table th:nth-child(6),
+.staff-table td:nth-child(6){
+
+    width:10%;
+
+}
+
+
+
+/* Thao tác */
+
+.staff-table th:nth-child(7),
+.staff-table td:nth-child(7){
+
+    width:10%;
+
+    text-align:center;
+
+}
+
+
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+
+.staff-actions {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:nowrap;
+
+}
+
+
+
+.staff-actions form {
+
+    margin:0;
+
+}
+
+
+
+.staff-actions .btn {
+
+    white-space:nowrap;
+
+    padding:8px 12px;
+
+    font-size:12px;
+
+}

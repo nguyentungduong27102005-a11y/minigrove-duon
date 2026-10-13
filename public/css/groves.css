@@ -1,0 +1,1063 @@
+/* =========================================================
+   MINIGROVE - MY GROVE
+========================================================= */
+
+.groves-page {
+    min-height: 70vh;
+
+    padding:
+        48px 0 72px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7faf7 0%,
+            #ffffff 100%
+        );
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.groves-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 34px;
+}
+
+.groves-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: var(--mg-green);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+.groves-heading h1 {
+    margin: 0;
+
+    color: var(--mg-green-dark);
+
+    font-size: 38px;
+    line-height: 1.15;
+}
+
+.groves-heading p {
+    max-width: 600px;
+
+    margin:
+        12px 0 0;
+
+    color: var(--mg-muted);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.groves-summary {
+    min-width: 112px;
+
+    padding: 16px 22px;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 16px;
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+        var(--mg-shadow);
+}
+
+.groves-summary-number {
+    display: block;
+
+    color: var(--mg-green-dark);
+
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.groves-summary-label {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--mg-muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.groves-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.grove-card {
+    overflow: hidden;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 32px
+        rgba(
+            29,
+            68,
+            48,
+            .06
+        );
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.grove-card:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 16px 38px
+        rgba(
+            29,
+            68,
+            48,
+            .11
+        );
+}
+
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.grove-card-image {
+    position: relative;
+
+    height: 205px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dceee1,
+            #f3f8f4
+        );
+}
+
+.grove-card-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.grove-card-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 68px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.grove-status {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 30px;
+
+    padding:
+        0 11px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .93
+        );
+
+    color: var(--mg-green-dark);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 14px
+        rgba(
+            0,
+            0,
+            0,
+            .07
+        );
+}
+
+.grove-status-active {
+    background: #e7f5eb;
+    color: #25613f;
+}
+
+.grove-status-needs_attention {
+    background: #fff3d9;
+    color: #8a6014;
+}
+
+.grove-status-archived {
+    background: #eef0ef;
+    color: #68716c;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.grove-card-body {
+    padding: 22px;
+}
+
+.grove-code {
+    margin-bottom: 7px;
+
+    color: var(--mg-green-medium);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: .7px;
+}
+
+.grove-name {
+    margin:
+        0 0 20px;
+
+    color: var(--mg-green-dark);
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.grove-meta {
+    display: grid;
+
+    gap: 13px;
+}
+
+.grove-meta-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-bottom: 12px;
+
+    border-bottom:
+        1px solid #edf1ee;
+
+    font-size: 13px;
+}
+
+.grove-meta-label {
+    color: var(--mg-muted);
+}
+
+.grove-meta-item strong {
+    color: var(--mg-text);
+
+    text-align: right;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CONDITION
+========================================================= */
+
+.grove-condition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 16px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    background: var(--mg-green-pale);
+
+    color: var(--mg-muted);
+
+    font-size: 13px;
+}
+
+.grove-condition strong {
+    color: var(--mg-green-dark);
+}
+
+
+/* =========================================================
+   DETAIL BUTTON
+========================================================= */
+
+.groves-detail-button,
+.groves-primary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    min-height: 44px;
+
+    margin-top: 20px;
+
+    padding:
+        0 18px;
+
+    border-radius: 10px;
+
+    background: var(--mg-green-dark);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.groves-detail-button:hover,
+.groves-primary-button:hover {
+    background: var(--mg-green);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.groves-empty {
+    max-width: 620px;
+
+    margin:
+        20px auto 0;
+
+    padding: 55px 35px;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 20px;
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+        var(--mg-shadow);
+}
+
+.groves-empty-icon {
+    margin-bottom: 15px;
+
+    font-size: 64px;
+}
+
+.groves-empty h2 {
+    margin:
+        0 0 10px;
+
+    color: var(--mg-green-dark);
+}
+
+.groves-empty p {
+    max-width: 460px;
+
+    margin:
+        0 auto;
+
+    color: var(--mg-muted);
+
+    line-height: 1.7;
+}
+
+.groves-empty
+.groves-primary-button {
+    width: fit-content;
+
+    margin:
+        25px auto 0;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.groves-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 38px;
+}
+
+.groves-page-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+
+    padding:
+        0 16px;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--mg-green-dark);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.groves-page-button:hover {
+    background: var(--mg-green-soft);
+}
+
+.groves-page-button.disabled {
+    opacity: .45;
+
+    cursor: not-allowed;
+}
+
+.groves-page-info {
+    color: var(--mg-muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+    max-width: 1000px
+) {
+
+    .groves-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+}
+
+
+@media (
+    max-width: 680px
+) {
+
+    .groves-page {
+        padding:
+            32px 0 52px;
+    }
+
+    .groves-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .groves-heading h1 {
+        font-size: 31px;
+    }
+
+    .groves-summary {
+        min-width: 100px;
+    }
+
+    .groves-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .groves-pagination {
+        flex-wrap: wrap;
+    }
+
+}
+/* =========================================================
+   GROVE DETAIL
+========================================================= */
+
+.grove-detail-page {
+    min-height: 70vh;
+
+    padding:
+        38px 0 72px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7faf7 0%,
+            #ffffff 100%
+        );
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.grove-detail-back {
+    margin-bottom: 22px;
+}
+
+.grove-back-link {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 40px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--mg-green-dark);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.grove-back-link:hover {
+    background: var(--mg-green-soft);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.grove-detail-hero {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, .85fr)
+        minmax(0, 1.15fr);
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 22px;
+
+    background: white;
+
+    box-shadow:
+        var(--mg-shadow);
+}
+
+.grove-detail-image {
+    min-height: 430px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dceee1,
+            #f3f8f4
+        );
+}
+
+.grove-detail-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.grove-detail-placeholder {
+    width: 100%;
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 105px;
+}
+
+.grove-detail-intro {
+    padding:
+        42px 44px;
+}
+
+.grove-detail-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    margin-bottom: 13px;
+}
+
+.grove-detail-status {
+    position: static;
+
+    flex-shrink: 0;
+}
+
+.grove-detail-intro h1 {
+    margin:
+        0 0 10px;
+
+    color: var(--mg-green-dark);
+
+    font-size: 36px;
+}
+
+.grove-detail-description {
+    margin:
+        0 0 30px;
+
+    color: var(--mg-muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.grove-detail-overview {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 14px;
+}
+
+.grove-overview-item {
+    padding: 16px;
+
+    border:
+        1px solid #edf1ee;
+
+    border-radius: 12px;
+
+    background: #fafcf9;
+}
+
+.grove-overview-item span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--mg-muted);
+
+    font-size: 12px;
+}
+
+.grove-overview-item strong {
+    color: var(--mg-green-dark);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DETAIL SECTION
+========================================================= */
+
+.grove-detail-section {
+    margin-top: 28px;
+
+    padding:
+        30px;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 8px 28px
+        rgba(
+            29,
+            68,
+            48,
+            .05
+        );
+}
+
+.grove-section-heading {
+    margin-bottom: 22px;
+}
+
+.grove-section-heading h2 {
+    margin: 0;
+
+    color: var(--mg-green-dark);
+
+    font-size: 23px;
+}
+
+.grove-section-heading p {
+    margin:
+        8px 0 0;
+
+    color: var(--mg-muted);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CARE
+========================================================= */
+
+.grove-care-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.grove-care-card {
+    padding: 22px;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 14px;
+
+    background: var(--mg-green-pale);
+}
+
+.grove-care-icon {
+    margin-bottom: 16px;
+
+    font-size: 30px;
+}
+
+.grove-care-card span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--mg-muted);
+
+    font-size: 12px;
+}
+
+.grove-care-card strong {
+    color: var(--mg-green-dark);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   COMPONENTS
+========================================================= */
+
+.grove-components-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 16px;
+}
+
+.grove-component-card {
+    padding: 20px;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 13px;
+
+    background: #fafcf9;
+}
+
+.grove-component-icon {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 27px;
+}
+
+.grove-component-card strong {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--mg-green-dark);
+}
+
+.grove-component-card pre {
+    overflow: auto;
+
+    margin: 0;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: var(--mg-muted);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+
+    white-space: pre-wrap;
+}
+
+.grove-components-empty {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    border:
+        1px dashed var(--mg-border);
+
+    border-radius: 13px;
+
+    background: var(--mg-green-pale);
+}
+
+.grove-components-empty-icon {
+    font-size: 38px;
+}
+
+.grove-components-empty strong {
+    color: var(--mg-green-dark);
+}
+
+.grove-components-empty p {
+    margin:
+        5px 0 0;
+
+    color: var(--mg-muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   INFO TABLE
+========================================================= */
+
+.grove-info-table {
+    overflow: hidden;
+
+    border:
+        1px solid var(--mg-border);
+
+    border-radius: 12px;
+}
+
+.grove-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    min-height: 54px;
+
+    padding:
+        12px 18px;
+
+    border-bottom:
+        1px solid var(--mg-border);
+}
+
+.grove-info-row:last-child {
+    border-bottom: 0;
+}
+
+.grove-info-row span {
+    color: var(--mg-muted);
+
+    font-size: 13px;
+}
+
+.grove-info-row strong {
+    color: var(--mg-text);
+
+    text-align: right;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   DETAIL RESPONSIVE
+========================================================= */
+
+@media (
+    max-width: 900px
+) {
+
+    .grove-detail-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .grove-detail-image,
+    .grove-detail-placeholder {
+        min-height: 300px;
+    }
+
+    .grove-care-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (
+    max-width: 600px
+) {
+
+    .grove-detail-intro {
+        padding:
+            28px 22px;
+    }
+
+    .grove-detail-intro h1 {
+        font-size: 29px;
+    }
+
+    .grove-detail-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .grove-detail-section {
+        padding:
+            22px 18px;
+    }
+
+    .grove-components-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

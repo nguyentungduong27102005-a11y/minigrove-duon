@@ -1,0 +1,1321 @@
+/* =========================================================
+   MINIGROVE
+   ADMIN - RETURNS / REFUNDS
+========================================================= */
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-returns-card {
+    min-width: 0;
+}
+
+
+.admin-returns-subtitle {
+    margin: 5px 0 0;
+
+    color: #748078;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   STATUS TABS
+========================================================= */
+
+.return-status-tabs {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 18px;
+
+    padding-bottom: 3px;
+
+    overflow-x: auto;
+}
+
+
+.return-status-tab {
+    flex: 0 0 auto;
+
+    min-height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 13px;
+
+    border: 1px solid #d9e1dc;
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    color: #53645a;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.15s ease;
+}
+
+
+.return-status-tab:hover {
+    border-color: #879d8c;
+
+    background: #f4f8f5;
+
+    color: #244d32;
+}
+
+
+.return-status-tab.active {
+    border-color: #315f41;
+
+    background: #315f41;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.admin-return-filter {
+    display: grid;
+
+    grid-template-columns:
+        minmax(260px, 2fr)
+        minmax(180px, 1fr)
+        auto
+        auto;
+
+    gap: 9px;
+
+    margin-bottom: 17px;
+}
+
+
+.admin-return-filter input,
+.admin-return-filter select {
+    width: 100%;
+
+    min-height: 41px;
+
+    padding: 0 11px;
+
+    border: 1px solid #ccd5cf;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+
+.admin-return-filter input:focus,
+.admin-return-filter select:focus {
+    border-color: #5d7b66;
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.admin-return-result {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    margin-bottom: 13px;
+
+    color: #78847c;
+
+    font-size: 12px;
+}
+
+
+.admin-return-result strong {
+    color: #294b35;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+/* =========================================================
+   RETURN TABLE - FIX FULL WIDTH
+========================================================= */
+
+
+.admin-return-table {
+
+    width:100%;
+
+    table-layout:fixed;
+
+    border-collapse:collapse;
+
+}
+
+
+
+.admin-return-table th,
+.admin-return-table td {
+
+    padding:12px 10px;
+
+    vertical-align:middle;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+
+.admin-return-table th {
+
+    font-size:12px;
+
+    color:#415147;
+
+}
+
+
+
+.admin-return-table td {
+
+    font-size:12px;
+
+}
+
+
+
+/* =========================================================
+   COLUMN WIDTH
+========================================================= */
+
+
+/* Mã yêu cầu */
+
+.admin-return-table th:nth-child(1),
+.admin-return-table td:nth-child(1){
+
+    width:15%;
+
+}
+
+
+/* Đơn hàng */
+
+.admin-return-table th:nth-child(2),
+.admin-return-table td:nth-child(2){
+
+    width:15%;
+
+}
+
+
+/* Customer */
+
+.admin-return-table th:nth-child(3),
+.admin-return-table td:nth-child(3){
+
+    width:13%;
+
+}
+
+
+/* Sản phẩm trả */
+
+.admin-return-table th:nth-child(4),
+.admin-return-table td:nth-child(4){
+
+    width:12%;
+
+}
+
+
+/* Lý do */
+
+.admin-return-table th:nth-child(5),
+.admin-return-table td:nth-child(5){
+
+    width:15%;
+
+}
+
+
+/* Dự kiến hoàn */
+
+.admin-return-table th:nth-child(6),
+.admin-return-table td:nth-child(6){
+
+    width:12%;
+
+}
+
+
+/* Trạng thái */
+
+.admin-return-table th:nth-child(7),
+.admin-return-table td:nth-child(7){
+
+    width:10%;
+
+}
+
+
+/* Ngày gửi */
+
+.admin-return-table th:nth-child(8),
+.admin-return-table td:nth-child(8){
+
+    width:10%;
+
+}
+
+
+/* Thao tác */
+
+.admin-return-table th:nth-child(9),
+.admin-return-table td:nth-child(9){
+
+    width:8%;
+
+    text-align:center;
+
+}
+
+/* =========================================================
+   ORDER
+========================================================= */
+
+.admin-return-order-code {
+    display: block;
+
+    color: #405e49;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+.admin-return-order-code:hover {
+    text-decoration: underline;
+}
+
+
+.admin-return-order-status {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #8a958e;
+
+    font-size: 9px;
+
+    text-transform: capitalize;
+}
+
+
+/* =========================================================
+   CUSTOMER
+========================================================= */
+
+.admin-return-customer {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #344139;
+}
+
+
+.admin-return-customer-info {
+    display: block;
+
+    color: #7e8a82;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   ITEM COUNT
+========================================================= */
+
+.admin-return-item-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 27px;
+
+    padding: 0 9px;
+
+    border-radius: 6px;
+
+    background: #f1f5f2;
+
+    color: #526158;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   REASON
+========================================================= */
+
+.admin-return-reason {
+    color: #536158;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   REFUND
+========================================================= */
+
+.admin-return-refund {
+    color: #245b36;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admin-return-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 28px;
+
+    padding: 0 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.admin-return-status-pending {
+    background: #fff3d9;
+    color: #8a611a;
+}
+
+
+.admin-return-status-approved {
+    background: #e8f0fc;
+    color: #436a9a;
+}
+
+
+.admin-return-status-returning {
+    background: #eee8f7;
+    color: #674f88;
+}
+
+
+.admin-return-status-received {
+    background: #e4f3f7;
+    color: #357485;
+}
+
+
+.admin-return-status-refunded {
+    background: #e4f4e8;
+    color: #287041;
+}
+
+
+.admin-return-status-rejected {
+    background: #f8e5e5;
+    color: #994141;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.admin-return-date {
+    display: block;
+
+    color: #414e46;
+
+    white-space: nowrap;
+}
+
+
+.admin-return-time {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #89938d;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.admin-returns-empty {
+    padding: 50px 20px;
+}
+
+
+.admin-returns-empty-icon {
+    margin-bottom: 10px;
+
+    color: #4d6c57;
+
+    font-size: 30px;
+}
+
+
+.admin-returns-empty strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #4d5a52;
+}
+
+
+.admin-returns-empty p {
+    margin: 0;
+
+    color: #8b948e;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .admin-return-filter {
+        grid-template-columns:
+            1fr
+            1fr;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .admin-return-filter {
+        grid-template-columns: 1fr;
+    }
+
+
+    .admin-return-filter .btn {
+        width: 100%;
+    }
+
+}
+/* =========================================================
+   ADMIN RETURN DETAIL
+========================================================= */
+
+.admin-return-detail-page {
+    min-width: 0;
+}
+
+
+.admin-return-detail-top {
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-return-detail-header {
+    margin-bottom: 18px;
+}
+
+
+.admin-return-detail-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.admin-return-detail-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #87928b;
+
+    font-size: 10px;
+}
+
+
+.admin-return-detail-heading h1 {
+    margin: 0 0 6px;
+
+    color: #205333;
+
+    font-size: 24px;
+}
+
+
+.admin-return-detail-heading p {
+    margin: 0;
+
+    color: #7d8982;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.admin-return-detail-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        350px;
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+
+.admin-return-detail-main {
+    min-width: 0;
+}
+
+
+.admin-return-detail-sidebar {
+    position: sticky;
+
+    top: 20px;
+}
+
+
+/* =========================================================
+   DETAIL CARD
+========================================================= */
+
+.admin-return-detail-card {
+    margin-bottom: 18px;
+
+    padding: 0;
+
+    overflow: hidden;
+}
+
+
+.admin-return-card-header {
+    padding: 17px 20px;
+
+    border-bottom: 1px solid #e5ebe7;
+
+    background: #fafcfb;
+}
+
+
+.admin-return-card-header h2 {
+    margin: 0;
+
+    color: #244b31;
+
+    font-size: 15px;
+}
+
+
+.admin-return-card-header p {
+    margin: 4px 0 0;
+
+    color: #829088;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   ORDER
+========================================================= */
+
+.admin-return-order-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    padding: 20px;
+}
+
+
+.admin-return-order-info span,
+.admin-return-processing-info span,
+.admin-return-request-content span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #87928b;
+
+    font-size: 9px;
+}
+
+
+.admin-return-order-info strong,
+.admin-return-processing-info strong,
+.admin-return-request-content strong {
+    color: #35423a;
+
+    font-size: 12px;
+}
+
+
+.admin-return-order-link {
+    padding: 0 20px 20px;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.admin-return-products {
+    padding: 0 20px;
+}
+
+
+.admin-return-product-row {
+    min-height: 100px;
+
+    display: grid;
+
+    grid-template-columns:
+        72px
+        minmax(180px, 1fr)
+        110px
+        90px
+        130px;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #e8ece9;
+}
+
+
+.admin-return-product-row:last-child {
+    border-bottom: 0;
+}
+
+
+.admin-return-product-image {
+    width: 66px;
+    height: 64px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dfe6e1;
+    border-radius: 8px;
+
+    background: #eef4ef;
+}
+
+
+.admin-return-product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.admin-return-product-image span {
+    font-size: 25px;
+}
+
+
+.admin-return-product-info strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #303d35;
+
+    font-size: 12px;
+}
+
+
+.admin-return-product-info span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #839088;
+
+    font-size: 9px;
+}
+
+
+.admin-return-product-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #87928b;
+
+    font-size: 9px;
+}
+
+
+.admin-return-product-value {
+    color: #31543c;
+
+    font-size: 11px;
+}
+
+
+.admin-return-product-refund {
+    text-align: right;
+}
+
+
+.admin-return-product-refund strong {
+    color: #226039;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   REQUEST CONTENT
+========================================================= */
+
+.admin-return-request-content {
+    padding: 20px;
+}
+
+
+.admin-return-request-content > div {
+    margin-bottom: 18px;
+}
+
+
+.admin-return-request-content > div:last-child {
+    margin-bottom: 0;
+}
+
+
+.admin-return-request-content p {
+    margin: 0;
+
+    color: #4d5b52;
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROCESSING
+========================================================= */
+
+.admin-return-processing-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    padding: 20px;
+}
+
+
+.admin-return-full {
+    grid-column: 1 / -1;
+}
+
+
+.admin-return-note {
+    margin: 0;
+
+    color: #4e5c53;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+}
+
+
+/* =========================================================
+   REFUND CARD
+========================================================= */
+
+.admin-return-refund-card {
+    margin-bottom: 15px;
+
+    padding: 20px;
+}
+
+
+.admin-return-refund-card h2 {
+    margin: 0 0 15px;
+
+    color: #244b31;
+
+    font-size: 15px;
+}
+
+
+.admin-return-summary-row {
+    min-height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    color: #78857d;
+
+    font-size: 10px;
+}
+
+
+.admin-return-summary-row strong {
+    color: #35433a;
+
+    text-align: right;
+}
+
+
+.admin-return-summary-total {
+    margin-top: 8px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #e1e7e3;
+}
+
+
+.admin-return-summary-total strong {
+    color: #205633;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   ACTION
+========================================================= */
+
+.admin-return-action-card {
+    margin-bottom: 15px;
+
+    padding: 20px;
+}
+
+
+.admin-return-action-heading {
+    margin-bottom: 15px;
+}
+
+
+.admin-return-action-heading h2 {
+    margin: 0;
+
+    color: #244b31;
+
+    font-size: 15px;
+}
+
+
+.admin-return-action-heading p {
+    margin: 5px 0 0;
+
+    color: #78857d;
+
+    font-size: 10px;
+
+    line-height: 1.55;
+}
+
+
+.admin-return-action-form {
+    margin: 0;
+}
+
+
+.admin-return-action-field {
+    margin-bottom: 13px;
+}
+
+
+.admin-return-action-field label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #46564c;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+.admin-return-action-field label span {
+    color: #a33f3f;
+}
+
+
+.admin-return-action-field textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 9px 10px;
+
+    border: 1px solid #ccd6cf;
+    border-radius: 7px;
+
+    background: white;
+
+    outline: none;
+
+    resize: vertical;
+
+    font-family: inherit;
+    font-size: 11px;
+}
+
+
+.admin-return-action-field textarea:focus {
+    border-color: #62806b;
+}
+
+
+.admin-return-full-button {
+    width: 100%;
+
+    justify-content: center;
+}
+
+
+.admin-return-reject-button {
+    border: 1px solid #a64c4c;
+
+    background: #ffffff;
+
+    color: #9a4141;
+}
+
+
+.admin-return-reject-button:hover {
+    background: #fff1f1;
+
+    color: #873737;
+}
+
+
+.admin-return-action-divider {
+    margin: 17px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #9aa39d;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   RESTOCK
+========================================================= */
+
+.admin-return-restock-warning {
+    margin-bottom: 15px;
+
+    padding: 12px;
+
+    border: 1px solid #ead7aa;
+    border-radius: 7px;
+
+    background: #fff8e9;
+
+    color: #835f1e;
+}
+
+
+.admin-return-restock-warning strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+}
+
+
+.admin-return-restock-warning p {
+    margin: 0;
+
+    font-size: 9px;
+    line-height: 1.55;
+}
+
+
+.admin-return-restock-item {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        105px;
+
+    gap: 12px;
+
+    align-items: center;
+
+    margin-bottom: 14px;
+
+    padding: 12px;
+
+    border: 1px solid #e0e7e2;
+    border-radius: 7px;
+
+    background: #fafcfb;
+}
+
+
+.admin-return-restock-item strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #34463a;
+
+    font-size: 10px;
+}
+
+
+.admin-return-restock-item span {
+    color: #849088;
+
+    font-size: 9px;
+}
+
+
+.admin-return-restock-item label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #55645a;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+.admin-return-restock-item select {
+    width: 100%;
+    height: 36px;
+
+    padding: 0 8px;
+
+    border: 1px solid #cad5cd;
+    border-radius: 6px;
+
+    background: white;
+
+    outline: none;
+}
+
+
+/* =========================================================
+   REFUND CONFIRM
+========================================================= */
+
+.admin-return-refund-confirm {
+    margin-bottom: 15px;
+
+    padding: 13px;
+
+    border-radius: 8px;
+
+    background: #eff6f1;
+}
+
+
+.admin-return-refund-confirm span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #748078;
+
+    font-size: 9px;
+}
+
+
+.admin-return-refund-confirm strong {
+    color: #1f5b35;
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.admin-return-final-state {
+    padding: 13px;
+
+    border-radius: 7px;
+
+    background: #f1f5f2;
+
+    color: #45594b;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .admin-return-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+
+    .admin-return-detail-sidebar {
+        position: static;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .admin-return-product-row {
+        grid-template-columns:
+            65px
+            minmax(0, 1fr);
+    }
+
+
+    .admin-return-product-row > div:nth-child(n+3) {
+        grid-column: 2;
+    }
+
+
+    .admin-return-product-refund {
+        text-align: left;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-return-detail-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .admin-return-order-info,
+    .admin-return-processing-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    .admin-return-full {
+        grid-column: auto;
+    }
+
+}
+/* =========================================================
+   RETURN RESPONSIVE
+========================================================= */
+
+
+@media(max-width:1000px){
+
+    .admin-return-table {
+
+        min-width:900px;
+
+    }
+
+}

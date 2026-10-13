@@ -1,0 +1,797 @@
+/* =========================================================
+   MINIGROVE ADMIN - STOCK MANAGEMENT
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.stock-page {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.stock-heading {
+    margin-bottom: 25px;
+}
+
+
+.stock-heading h1 {
+    margin: 0 0 8px;
+
+    color: var(--mg-green-dark);
+
+    font-size: 32px;
+}
+
+
+.stock-heading p {
+
+    margin:0;
+
+    color:var(--mg-muted);
+
+}
+
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+
+.stock-stats {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.stock-stat-card {
+
+    padding:22px;
+
+    background:white;
+
+    border:1px solid var(--mg-border);
+
+    border-radius:16px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.04);
+
+}
+
+
+
+.stock-stat-label {
+
+    color:var(--mg-muted);
+
+    font-size:14px;
+
+}
+
+
+
+.stock-stat-value {
+
+    margin-top:10px;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:var(--mg-green-dark);
+
+}
+
+
+
+.stock-stat-warning .stock-stat-value {
+
+    color:#b7791f;
+
+}
+
+
+
+.stock-stat-danger .stock-stat-value {
+
+    color:#b83232;
+
+}
+
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+
+.stock-filter-card {
+
+    padding:22px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.stock-filter-form {
+
+    display:grid;
+
+    grid-template-columns:
+
+        2fr
+        1fr
+        auto;
+
+
+    gap:15px;
+
+    align-items:end;
+
+}
+
+
+
+.stock-filter-field label {
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+.stock-filter-field input,
+.stock-filter-field select {
+
+    width:100%;
+
+}
+
+
+
+.stock-filter-actions {
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+/* =========================================================
+   TABLE SECTION
+========================================================= */
+
+
+.stock-table-header {
+
+    margin-bottom:18px;
+
+}
+
+
+
+.stock-table-header h2 {
+
+    margin:0;
+
+    font-size:22px;
+
+    color:var(--mg-green-dark);
+
+}
+
+
+
+.stock-table-header p {
+
+    margin-top:6px;
+
+    color:var(--mg-muted);
+
+}
+
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+
+.table-wrapper {
+
+    overflow-x:auto;
+
+}
+
+
+
+.stock-table {
+
+    width:100%;
+
+    min-width:1050px;
+
+    border-collapse:collapse;
+
+}
+
+
+
+.stock-table th {
+
+    padding:15px;
+
+    background:#f3f7f4;
+
+    color:#315343;
+
+    font-size:13px;
+
+    text-align:left;
+
+}
+
+
+
+.stock-table td {
+
+    padding:15px;
+
+    border-bottom:1px solid #edf1ee;
+
+    vertical-align:middle;
+
+}
+
+
+
+.stock-table tr:hover {
+
+    background:#fafdfb;
+
+}
+
+
+
+.stock-item-name {
+
+    font-weight:700;
+
+}
+
+
+
+.stock-item-unit {
+
+    margin-top:4px;
+
+    color:var(--mg-muted);
+
+    font-size:12px;
+
+}
+
+
+
+.stock-quantity {
+
+    color:var(--mg-green-dark);
+
+    font-size:18px;
+
+}
+
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+
+.stock-status {
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+
+.stock-status-normal {
+
+    background:#dcf3e3;
+
+    color:#216b38;
+
+}
+
+
+
+.stock-status-low {
+
+    background:#fff1d6;
+
+    color:#956315;
+
+}
+
+
+
+.stock-status-out {
+
+    background:#fde3e3;
+
+    color:#a33a3a;
+
+}
+
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+
+.stock-active,
+.stock-inactive {
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+
+.stock-active {
+
+    background:#dcf3e3;
+
+    color:#216b38;
+
+}
+
+
+
+.stock-inactive {
+
+    background:#eeeeee;
+
+    color:#777;
+
+}
+
+
+
+/* =========================================================
+   THRESHOLD
+========================================================= */
+
+
+.stock-threshold-form {
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:center;
+
+}
+
+
+
+.stock-threshold-form input {
+
+    width:80px;
+
+}
+
+
+
+.stock-small-button {
+
+
+    padding:8px 12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e8efea;
+
+    cursor:pointer;
+
+}
+
+
+
+.stock-small-button:hover {
+
+    background:#d9e5dc;
+
+}
+
+
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+
+.stock-actions {
+
+    display:flex;
+
+    gap:8px;
+
+    white-space:nowrap;
+
+}
+
+
+
+.stock-actions .btn {
+
+    border-radius:8px;
+
+    font-size:13px;
+
+}
+
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+
+.stock-pagination {
+
+    margin-top:20px;
+
+}
+
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+
+.stock-modal {
+
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:1000;
+
+}
+
+
+
+.stock-modal-box {
+
+
+    width:420px;
+
+    padding:25px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.18);
+
+}
+
+
+
+.stock-modal-header {
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.stock-modal-header h3 {
+
+    margin:0;
+
+    color:var(--mg-green-dark);
+
+}
+
+
+
+.stock-modal-close {
+
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+
+
+.form-group {
+
+    margin-bottom:16px;
+
+}
+
+
+
+.form-group label {
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+.form-group textarea {
+
+    width:100%;
+
+}
+
+
+
+.stock-modal-actions {
+
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+
+.stock-error-list {
+
+    margin:10px 0;
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+
+@media(max-width:900px){
+
+
+    .stock-stats {
+
+        grid-template-columns:
+            repeat(1,1fr);
+
+    }
+
+
+
+    .stock-filter-form {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}
+/* =====================================================
+   HISTORY PAGE POLISH
+===================================================== */
+
+
+/* BACK BUTTON */
+
+.stock-history-back {
+
+    margin-bottom:28px;
+
+}
+
+
+.stock-history-back .btn {
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:10px 16px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+}
+
+
+
+/* PRODUCT INFO */
+
+.stock-history-info {
+
+    margin-bottom:22px;
+
+}
+
+
+
+/* SUMMARY CARDS */
+
+.stock-history-summary {
+
+    display:flex;
+
+    gap:18px;
+
+    margin-bottom:22px;
+
+}
+
+
+
+.stock-history-summary > div {
+
+    background:white;
+
+    border:1px solid var(--mg-border);
+
+    border-radius:12px;
+
+    padding:18px 28px;
+
+    min-width:180px;
+
+}
+
+
+
+.stock-history-summary span {
+
+    color:var(--mg-muted);
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+
+
+.stock-history-summary strong {
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:32px;
+
+    line-height:1;
+
+    color:var(--mg-green-dark);
+
+}
+
+
+
+
+
+/* TABLE CARD */
+
+.stock-history-table-wrapper {
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .stock-history-summary{
+
+        flex-direction:column;
+
+    }
+
+
+    .stock-history-summary > div{
+
+        width:100%;
+
+    }
+
+}
