@@ -461,4 +461,24 @@ public function processedReturnRequests()
     );
 }
 
+public function sendPasswordResetNotification($token)
+{
+    $testEmail = config('mail.admin_order_email');
+
+    if (
+        $testEmail &&
+        strcasecmp($this->email, $testEmail) === 0
+    ) {
+        $this->notify(
+            new \App\Notifications\ResendPasswordReset($token)
+        );
+
+        return;
+    }
+
+    $this->notify(
+        new \Illuminate\Auth\Notifications\ResetPassword($token)
+    );
+}
+
 }
