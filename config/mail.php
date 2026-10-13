@@ -34,6 +34,11 @@ return [
     */
 
     'mailers' => [
+        // Gửi email bằng Resend API
+    'resend' => [
+        'transport' => 'resend',
+    ],
+
         'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
