@@ -461,24 +461,56 @@ public function processedReturnRequests()
     );
 }
 
+
 public function sendPasswordResetNotification($token)
 {
-    $testEmail = config('mail.admin_order_email');
+    $apiKey = config('services.brevo.api_key');
+    $senderEmail = config('services.brevo.sender_email');
+    $senderName = config('services.brevo.sender_name', 'MiniGrove');
 
-    if (
-        $testEmail &&
-        strcasecmp($this->email, $testEmail) === 0
-    ) {
-        $this->notify(
-            new \App\Notifications\ResendPasswordReset($token)
+    if (empty($apiKey) || empty($senderEmail)) {
+        throw new \RuntimeException(
+            'Brevo chưa được cấu hình đầy đủ.'
         );
-
-        return;
     }
 
-    $this->notify(
-        new \Illuminate\Auth\Notifications\ResetPassword($token)
-    );
+    $resetUrl = route('password.reset', [
+        'token' => $token,
+        'email' => $this->getEmailForPasswordReset(),
+    ]);
+
+    $content =
+        "Xin chào {$this->name},\n\n"
+        . "MiniGrove đã nhận được yêu cầu đặt lại mật khẩu.\n\n"
+        . "Nhấn vào liên kết sau để tạo mật khẩu mới:\n"
+        . $resetUrl . "\n\n"
+        . "Liên kết có hiệu lực trong "
+        . config('auth.passwords.users.expire', 60)
+        . " phút.\n\n"
+        . "Nếu bạn không yêu cầu đặt lại mật khẩu, "
+        . "hãy bỏ qua email này.\n\n"
+        . "Trân trọng,\nMiniGrove";
+
+    $response = \Illuminate\Support\Facades\Http::timeout(15)
+        ->withHeaders([
+            'api-key' => $apiKey,
+        ])
+        ->post('https://api.brevo.com/v3/smtp/email', [
+            'sender' => [
+                'name' => $senderName,
+                'email' => $senderEmail,
+            ],
+            'to' => [
+                [
+                    'email' => $this->getEmailForPasswordReset(),
+                ],
+            ],
+            'subject' => 'Dat lai mat khau MiniGrove',
+            'textContent' => $content,
+        ]);
+
+    $response->throw();
 }
+
 
 }
